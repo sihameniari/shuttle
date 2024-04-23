@@ -296,6 +296,7 @@ public class ShuttleApplication extends DaggerApplication {
             try {
                 getContentResolver().delete(PlayCountTable.URI, selection.toString(), null);
             } catch (IllegalArgumentException ignored) {
+                Log.e(TAG, "An exception occurred while deleting entries from the PlayCount table", e);
             }
         });
     }

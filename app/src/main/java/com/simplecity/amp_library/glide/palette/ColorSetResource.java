@@ -22,6 +22,9 @@ public class ColorSetResource implements Resource<ColorSet> {
 
     @Override
     public void recycle() {
+        // Le recyclage n'est pas pris en charge pour cette ressource car elle ne contient pas de ressources externes.
+        // la méthode recycle() serait implémentée pour libérer ces ressources.
+        throw new UnsupportedOperationException("Le recyclage n'est pas pris en charge pour cette ressource");
 
     }
 }

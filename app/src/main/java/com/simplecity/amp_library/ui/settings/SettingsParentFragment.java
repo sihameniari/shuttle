@@ -50,7 +50,7 @@ public class SettingsParentFragment extends BaseNavigationController implements
         DrawerLockManager.DrawerLock,
         MiniPlayerLockManager.MiniPlayerLock {
 
-    public static String ARG_PREFERENCE_RESOURCE = "preference_resource";
+    public static final String ARG_PREFERENCE_RESOURCE = "preference_resource";
     public static String ARG_TITLE = "title";
 
     @BindView(R.id.toolbar)
@@ -63,6 +63,7 @@ public class SettingsParentFragment extends BaseNavigationController implements
     int titleResId;
 
     private Unbinder unbinder;
+}
 
     public static SettingsParentFragment newInstance(@XmlRes int preferenceResource, @StringRes int titleResId) {
         Bundle args = new Bundle();

@@ -416,7 +416,10 @@ class AlbumDetailFragment :
             popupMenu.show()
         }
 
+        // This function is intentionally left empty because drag functionality is not implemented yet.
+        // Drag and drop functionality can be added in future iterations.
         override fun onStartDrag(holder: SongView.ViewHolder) {
+            // Implement drag and drop functionality here if needed in future.
 
         }
     }

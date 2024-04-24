@@ -19,6 +19,10 @@ import android.graphics.Bitmap;
  */
 
 public class FastBlur {
+    private FastBlur() {
+        // Private constructor to prevent instantiation
+        throw new UnsupportedOperationException("This class cannot be instantiated");
+    }
 
     public static Bitmap blur(Bitmap sentBitmap, int radius, boolean canReuseInBitmap) {
 

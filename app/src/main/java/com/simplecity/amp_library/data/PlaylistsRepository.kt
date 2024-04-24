@@ -44,16 +44,26 @@ class PlaylistsRepository @Inject constructor(
     }
 
     override fun getAllPlaylists(songsRepository: SongsRepository): Observable<MutableList<Playlist>> {
-        val defaultPlaylistsObservable = Observable.fromCallable<List<Playlist>> {
-            val playlists = mutableListOf<Playlist>()
+    val defaultPlaylistsObservable = Observable.fromCallable<List<Playlist>> {
+        val playlists = mutableListOf<Playlist>()
+        val podcastsPlaylist = getPodcastPlaylist()
+        val recentlyAddedPlaylist = getRecentlyAddedPlaylist()
+        val mostPlayedPlaylist = getMostPlayedPlaylist()
 
-            // Todo: Hide Podcasts if there are no songs
-            playlists.add(getPodcastPlaylist())
-            playlists.add(getRecentlyAddedPlaylist())
-            playlists.add(getMostPlayedPlaylist())
+        // Check if there are any songs in the "Podcasts" playlist
+        val hasPodcasts = songsRepository.getPlaylistSongs(podcastsPlaylist.id).blockingFirst().isNotEmpty()
 
-            playlists
-        }.subscribeOn(Schedulers.io())
+        if (hasPodcasts) {
+            playlists.add(podcastsPlaylist)
+        }
+        playlists.add(recentlyAddedPlaylist)
+        playlists.add(mostPlayedPlaylist)
+
+        playlists
+    }.subscribeOn(Schedulers.io())
+    return defaultPlaylistsObservable
+}
+
 
         val playlistsObservable = getPlaylists()
 

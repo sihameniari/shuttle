@@ -33,7 +33,7 @@ import com.jp.wasabeef.glide.transformations.internal.RSBlur;
 public class BlurTransformation implements Transformation<Bitmap> {
 
     private static int maxRadius = 25;
-    private static int default_Down_Sampling = 1;
+    private static int defaultDownSamplin = 1;
 
     private Context mContext;
     private BitmapPool mBitmapPool;
@@ -42,19 +42,19 @@ public class BlurTransformation implements Transformation<Bitmap> {
     private int mSampling;
 
     public BlurTransformation(Context context) {
-        this(context, Glide.get(context).getBitmapPool(), maxRadius, default_Down_Sampling);
+        this(context, Glide.get(context).getBitmapPool(), maxRadius, defaultDownSamplin);
     }
 
     public BlurTransformation(Context context, BitmapPool pool) {
-        this(context, pool, maxRadius, default_Down_Sampling);
+        this(context, pool, maxRadius, defaultDownSamplin);
     }
 
     public BlurTransformation(Context context, BitmapPool pool, int radius) {
-        this(context, pool, radius, default_Down_Sampling);
+        this(context, pool, radius, defaultDownSamplin);
     }
 
     public BlurTransformation(Context context, int radius) {
-        this(context, Glide.get(context).getBitmapPool(), radius, default_Down_Sampling);
+        this(context, Glide.get(context).getBitmapPool(), radius, defaultDownSamplin);
     }
 
     public BlurTransformation(Context context, int radius, int sampling) {

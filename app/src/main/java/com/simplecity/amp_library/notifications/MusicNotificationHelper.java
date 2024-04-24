@@ -126,9 +126,9 @@ public class MusicNotificationHelper extends NotificationHelper {
                 .first(false)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(isFavorite -> {
-                    this.isFavorite = isFavorite;
-                    notification = getBuilder(context, song, mediaSessionToken, MusicNotificationHelper.this.bitmap, isPlaying, isFavorite).build();
+                .subscribe(songIsFavorite -> {
+                    this.isFavorite = songIsFavorite;
+                    notification = getBuilder(context, song, mediaSessionToken, MusicNotificationHelper.this.bitmap, isPlaying, songIsFavorite).build();
                     notify(notification);
                 }, error -> {
                     LogUtils.logException(TAG, "MusicNotificationHelper failed to present notification", error);

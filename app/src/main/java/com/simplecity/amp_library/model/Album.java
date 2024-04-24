@@ -24,8 +24,8 @@ public class Album implements
 
     public long id;
     public String name;
+    transient List<Artist> artists = new ArrayList<>();
 
-    public List<Artist> artists = new ArrayList<>();
     public String albumArtistName;
 
     public int year;

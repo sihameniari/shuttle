@@ -52,12 +52,13 @@ public class QCircleActivity extends BaseActivity {
     // [END] QuickCircle info.
 
     // -------------------------------------------------------------------------------
-    private final boolean DEBUG = true;
-    private final String TAG = "QCircleActivity";
+    private static final boolean DEBUG = true;
+    private static final String TAG = "QCircleActivity";
+    private static final Context mContext = null; // Replace null with the appropriate context initialization if needed
+    private static final Window win = null;
+    private static final ContentResolver contentResolver = null;
     int mQuickCoverState = 0;
-    Context mContext;
-    private Window win = null;
-    private ContentResolver contentResolver = null;
+
 
     //For buttons
     ImageButton backBtn = null;

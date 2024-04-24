@@ -194,23 +194,12 @@ public class TaggerUtils {
     }
 
     static void copyFile(File sourceFile, FileOutputStream outputStream) throws IOException {
-
-        FileChannel source = null;
-        FileChannel destination = null;
-
-        try {
-            source = new FileInputStream(sourceFile).getChannel();
-            destination = outputStream.getChannel();
+        try (FileChannel source = new FileInputStream(sourceFile).getChannel();
+             FileChannel destination = outputStream.getChannel()) {
             destination.transferFrom(source, 0, source.size());
-        } finally {
-            if (source != null) {
-                source.close();
-            }
-            if (destination != null) {
-                destination.close();
-            }
         }
     }
+    
 
     static void showChooseDocumentDialog(Context context, MaterialDialog.SingleButtonCallback listener, boolean hasChecked) {
         MaterialDialog.Builder builder = new MaterialDialog.Builder(context)

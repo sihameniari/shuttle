@@ -150,9 +150,10 @@ public abstract class BaseActivity extends AestheticActivity implements
                     getLifecycle(),
                     this,
                     analyticsManager,
-                    this, serviceToken -> {
+                    this, 
+                    serviceToken -> {
                         token = serviceToken;
-                        this.bindInFlight = false;
+                        bindInFlight = false;
                     }
             );
         }

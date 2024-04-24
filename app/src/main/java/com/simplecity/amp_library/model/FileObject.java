@@ -16,6 +16,16 @@ public class FileObject extends BaseFileObject {
     public FileObject() {
         this.fileType = FileType.FILE;
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        FileObject that = (FileObject) o;
+        return duration == that.duration &&
+                Objects.equals(extension, that.extension) &&
+                Objects.equals(tagInfo, that.tagInfo);
+    }
 
     public String getTimeString(Context context) {
         if (duration == 0) {

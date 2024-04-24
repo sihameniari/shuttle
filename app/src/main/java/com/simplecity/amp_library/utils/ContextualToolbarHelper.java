@@ -84,10 +84,11 @@ public class ContextualToolbarHelper<T> {
 
     public boolean handleClick(SelectableViewModel selectableViewModel, T item) {
         if (isActive) {
-            addOrRemoveItem(selectableViewModel, item);
-            callback.notifyItemChanged(selectableViewModel);
-            return true;
-        }
+            boolean success = addOrRemoveItem(selectableViewModel, item);
+            if (success) {
+                callback.notifyItemChanged(selectableViewModel);
+                return true;
+            }
         return false;
     }
 

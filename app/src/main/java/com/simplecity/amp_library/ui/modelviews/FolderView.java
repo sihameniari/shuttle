@@ -175,7 +175,10 @@ public class FolderView extends BaseSelectableViewModel<FolderView.ViewHolder> {
             case FileType.FOLDER:
                 holder.overflow.setVisibility(View.VISIBLE);
                 holder.imageView.setImageDrawable(holder.folderDrawable);
-                holder.lineTwo.setText(StringUtils.makeSubfoldersLabel(holder.itemView.getContext(), ((FolderObject) baseFileObject).folderCount, ((FolderObject) baseFileObject).fileCount));
+                if (baseFileObject instanceof FolderObject) {
+                    FolderObject folderObject = (FolderObject) baseFileObject;
+                    holder.lineTwo.setText(StringUtils.makeSubfoldersLabel(holder.itemView.getContext(), folderObject.folderCount, folderObject.fileCount));
+                }
                 holder.lineThree.setVisibility(View.GONE);
                 holder.lineOne.setText(baseFileObject.name);
                 break;

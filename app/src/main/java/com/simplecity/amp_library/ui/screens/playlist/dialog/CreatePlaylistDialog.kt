@@ -61,7 +61,6 @@ class CreatePlaylistDialog : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
 
         val songsToAdd: List<Song>? = arguments?.getSerializable(ARG_SONGS) as? List<Song>
-
         @SuppressLint("InflateParams")
         val customView = LayoutInflater.from(context).inflate(R.layout.dialog_playlist, null)
         val editText = customView.findViewById<EditText>(R.id.editText)
